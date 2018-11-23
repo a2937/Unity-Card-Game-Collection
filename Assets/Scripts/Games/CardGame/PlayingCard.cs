@@ -12,7 +12,7 @@ public class PlayingCard : MonoBehaviour, ICustomUIComponent
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private CardProperties properties;
+    private SolitaireCardProperties properties;
 
     
     // Use this for initialization
@@ -27,7 +27,7 @@ public class PlayingCard : MonoBehaviour, ICustomUIComponent
 
     }
 
-    public void SetCardProperties(CardProperties props)
+    public void SetCardProperties(SolitaireCardProperties props)
     {
         this.properties = props;
         UpdateSprite(); 

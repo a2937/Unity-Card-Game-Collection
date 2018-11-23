@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FiveCardStud.unity
     guid: 73594b89e6e546f40bdb3ca20d4b2df0
+  - enabled: 1
+    path: Assets/Scenes/BlackJack.unity
+    guid: 7381f4c0fa351e442bd08db182f9f580
+  - enabled: 1
+    path: Assets/Scenes/Rules.unity
+    guid: 6bd65f54cd95f894eb7145c843f98abd
   m_configObjects: {}

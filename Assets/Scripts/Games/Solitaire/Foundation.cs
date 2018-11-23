@@ -38,7 +38,7 @@ public class Foundation : MonoBehaviour, ICardStackUIComponent
         }
         else
         {
-            CardProperties card = foundationProperties.Peek();
+            SolitaireCardProperties card = foundationProperties.Peek();
             spriteRenderer.sprite = Resources.Load<Sprite>(card.GetSpriteName()); 
         }
     }

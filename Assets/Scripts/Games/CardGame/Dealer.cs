@@ -45,20 +45,28 @@ public class Dealer : Player
      * @param player the player
      * @return the card
      */
-    public CardProperties DealFirstCardToPlayer(Player player)
+    public SolitaireCardProperties DealFirstCardToPlayer(Player player)
     {
-        CardProperties tempCard = deck.Deal();
+        SolitaireCardProperties tempCard = deck.Deal();
         tempCard.Hide();
         player.AddCard(tempCard);
         return tempCard;
     }
 
-    public CardProperties DealToPlayer(Player player)
+    public SolitaireCardProperties DealToPlayer(Player player)
     {
-        CardProperties tempCard = deck.Deal();
+        SolitaireCardProperties tempCard = deck.Deal();
         tempCard.Show();
         player.AddCard(tempCard);
         return tempCard;
+    }
+
+    /**
+     * Returns the size of the deck
+     */
+     public int GetDeckSize()
+    {
+        return deck.GetCardCount(); 
     }
 
     /**

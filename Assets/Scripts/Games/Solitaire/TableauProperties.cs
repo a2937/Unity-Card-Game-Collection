@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TableauProperties : ICardStack
 {
-    private CardProperties[] Deck = new CardProperties[7];
+    private SolitaireCardProperties[] Deck = new SolitaireCardProperties[7];
 
     private int top = -1;
     private int count = 0;
@@ -18,7 +18,7 @@ public class TableauProperties : ICardStack
         gameStarted = began; 
     }
 
-    public bool Add(CardProperties newItem)
+    public bool Add(SolitaireCardProperties newItem)
     {
         if(IsFull())
         {
@@ -55,9 +55,9 @@ public class TableauProperties : ICardStack
         return count; 
     }
 
-    public IEnumerator<CardProperties> GetEnumerator()
+    public IEnumerator<SolitaireCardProperties> GetEnumerator()
     {
-        return (IEnumerator<CardProperties>)Deck.GetEnumerator(); 
+        return (IEnumerator<SolitaireCardProperties>)Deck.GetEnumerator(); 
     }
 
     public bool IsEmpty()
@@ -70,7 +70,7 @@ public class TableauProperties : ICardStack
         return count == 7;
     }
 
-    public CardProperties Peek()
+    public SolitaireCardProperties Peek()
     {
         if (top == -1)
         {
@@ -86,13 +86,13 @@ public class TableauProperties : ICardStack
         }
     }
 
-    public CardProperties Remove()
+    public SolitaireCardProperties Remove()
     {
         if(count == 0)
         {
             return null;
         }
-        CardProperties card = Deck[top];
+        SolitaireCardProperties card = Deck[top];
         Deck[top] = null;
         top--;
         count--;

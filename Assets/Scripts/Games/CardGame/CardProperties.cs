@@ -10,24 +10,15 @@ public class CardProperties : IComparable<CardProperties>
     [SerializeField]
     private int value;
 
-    [SerializeField]
-    private Suit suit;
-
+    
     [SerializeField]
     private bool visible = true;
 
     [SerializeField]
     private String cardName;
 
-    private Color color; //The color of the card
 
-    public CardProperties(int value, Suit suit, string cardName)
-    {
-        SetValue(value);
-        SetSuit(suit);
-        SetName(cardName);
-    }
-
+  
 
 
     /**
@@ -46,38 +37,6 @@ public class CardProperties : IComparable<CardProperties>
 
         this.value = newValue;
 
-    }
-
-    /**
-     * @return the suit
-     */
-    public Suit GetSuit()
-    {
-        return suit;
-    }
-
-    /**
-     * @param suit the suit to set
-     */
-    public void SetSuit(Suit suit)
-    {
-        this.suit = suit;
-        if(suit == Suit.HEARTS || suit == Suit.DIAMONDS)
-        {
-            this.color = Color.Red;
-        }
-        else
-        {
-            this.color = Color.Black;
-        }
-    }
-
-    /**
-     * @return If it is a black card
-     */
-    public bool IsBlack()
-    {
-        return color == Color.Black; 
     }
 
     /**
@@ -103,11 +62,11 @@ public class CardProperties : IComparable<CardProperties>
         return this.visible;
     }
 
-    public String GetSpriteName()
+    public virtual String GetSpriteName()
     {
         if(IsVisible())
         {
-            return GetName() + GetSuit().ToString(); 
+            return GetName(); 
         }
         else
         {
@@ -139,7 +98,7 @@ public class CardProperties : IComparable<CardProperties>
         StringBuilder builder = new StringBuilder();
         if (visible)
         {
-            builder.Append(GetName()).Append(" of ").Append(GetSuit());
+            builder.Append(GetName()); 
         }
 
         else

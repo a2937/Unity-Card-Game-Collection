@@ -10,7 +10,7 @@ using UnityEngine;
  */
 public class FoundationProperties : ICardStack
 {
-    private CardProperties[] Deck = new CardProperties[14];
+    private SolitaireCardProperties[] Deck = new SolitaireCardProperties[14];
 
     private int top = -1;
     private int count = 0;
@@ -51,7 +51,7 @@ public class FoundationProperties : ICardStack
         return suit; 
     }
 
-    public bool Add(CardProperties newItem)
+    public bool Add(SolitaireCardProperties newItem)
     {
         if (IsFull())
         {
@@ -91,9 +91,9 @@ public class FoundationProperties : ICardStack
         return count; 
     }
 
-    public IEnumerator<CardProperties> GetEnumerator()
+    public IEnumerator<SolitaireCardProperties> GetEnumerator()
     {
-        return (IEnumerator<CardProperties>)Deck.GetEnumerator(); 
+        return (IEnumerator<SolitaireCardProperties>)Deck.GetEnumerator(); 
     }
 
     public bool IsEmpty()
@@ -106,7 +106,7 @@ public class FoundationProperties : ICardStack
         return count == 13;
     }
 
-    public CardProperties Peek()
+    public SolitaireCardProperties Peek()
     {
         if (top != -1)
         {
@@ -149,7 +149,7 @@ public class FoundationProperties : ICardStack
         top = -1; 
     }
 
-    public CardProperties Remove()
+    public SolitaireCardProperties Remove()
     {
         if(IsEmpty())
         {
@@ -157,7 +157,7 @@ public class FoundationProperties : ICardStack
         }
         else
         {
-            CardProperties temp = Deck[top];
+            SolitaireCardProperties temp = Deck[top];
             Deck[top] = null;
             top--;
             count--;

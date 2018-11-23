@@ -17,7 +17,7 @@ public class Player
     private Color color; //Used for Connect4
 
     [SerializeField]
-    private List<CardProperties> hand = new List<CardProperties>();
+    private List<SolitaireCardProperties> hand = new List<SolitaireCardProperties>();
 
     private const int STRAIGHT_FLUSH = 8000000;
     // + valueHighCard()
@@ -77,14 +77,14 @@ public class Player
 
     public void SetCardVisible()
     {
-        CardProperties card = hand.Get(0);
+        SolitaireCardProperties card = hand.Get(0);
         card.Show();
         hand.Set(0, card);
     }
 
     public void SetCardVisible(int index)
     {
-        CardProperties card = hand.Get(index);
+        SolitaireCardProperties card = hand.Get(index);
         card.Show();
         hand.Set(index, card);
     }
@@ -112,7 +112,7 @@ public class Player
     private void SortByValue()
     {
         int smallest;
-        CardProperties tempCard;
+        SolitaireCardProperties tempCard;
 
         for (int current = 0; current < hand.Count - 1; current++)
         {
@@ -138,7 +138,7 @@ public class Player
     private void SortBySuit()
     {
         int smallest;
-        CardProperties tempCard;
+        SolitaireCardProperties tempCard;
 
         for (int current = 0; current < hand.Count; current++)
         {
@@ -233,7 +233,7 @@ public class Player
         return hand.Count;
     }
 
-    public void AddCard(CardProperties card)
+    public void AddCard(SolitaireCardProperties card)
     {
         if (hand.Count < 5)
         {
@@ -258,9 +258,9 @@ public class Player
     }
 
 
-    public List<CardProperties> GetHand()
+    public List<SolitaireCardProperties> GetHand()
     {
-        List<CardProperties> cards = new List<CardProperties>();
+        List<SolitaireCardProperties> cards = new List<SolitaireCardProperties>();
         for(int i = 0; i < hand.Count; i++)
         {
             cards.Add(hand.Get(i));
@@ -279,7 +279,7 @@ public class Player
         bool containsAce = false;
         int aceIndex = -1; 
 
-        foreach(CardProperties card in hand)
+        foreach(SolitaireCardProperties card in hand)
         {
             if(card.GetName().Equals("Ace"))
             {
@@ -314,7 +314,7 @@ public class Player
         else
         {
             int sum = 0;
-            foreach (CardProperties card in hand)
+            foreach (SolitaireCardProperties card in hand)
             {
                 sum += card.GetValue();
             }

@@ -66,7 +66,13 @@ public class Table : MonoBehaviour
     private Text potText;
 
     [SerializeField]
-    private Button QuitButton; 
+    private Button QuitButton;
+
+    [SerializeField]
+    private Text CardCountText;
+
+    [SerializeField]
+    private Image DeckVisual; 
 
     private bool needsReset;
 
@@ -83,6 +89,8 @@ public class Table : MonoBehaviour
         betInputField.gameObject.SetActive(false);
         potText.gameObject.SetActive(false);
         QuitButton.gameObject.SetActive(false);
+        CardCountText.gameObject.SetActive(false);
+        DeckVisual.gameObject.SetActive(false); 
         dataPath = Path.Combine(Application.persistentDataPath, "Data.txt");
         if (File.Exists(dataPath))
         {
@@ -97,6 +105,7 @@ public class Table : MonoBehaviour
     {
         dealerLabelText.text = "Name: " + theDealer.GetName() + "\n" + "Stash: " + theDealer.GetStash();
         playerLabelText.text = "Name: " + thePlayer.GetName() + "\n" + "Stash: " + thePlayer.GetStash();
+        CardCountText.text = theDealer.GetDeckSize().ToString() + " Cards";
         potText.text = "Pot: " + pot; 
     }
     
@@ -118,6 +127,8 @@ public class Table : MonoBehaviour
             winnerText.text = "";
         }
         potText.gameObject.SetActive(true);
+        DeckVisual.gameObject.SetActive(true);
+        CardCountText.gameObject.SetActive(true); 
         nameInput.gameObject.SetActive(false);
         stashInput.gameObject.SetActive(false);
         confirmNameButton.gameObject.SetActive(false);
@@ -206,7 +217,8 @@ public class Table : MonoBehaviour
         dealtext.text = "Restart";
         foldButton.gameObject.SetActive(false);
         betButton.gameObject.SetActive(false);
-        QuitButton.gameObject.SetActive(true); 
+        QuitButton.gameObject.SetActive(true);
+        CardCountText.gameObject.SetActive(false); 
         needsReset = true;
 
     }
@@ -230,7 +242,8 @@ public class Table : MonoBehaviour
                     thePlayer.GetHand().Get(0).Show();
                     theDealer.GetHand().Get(0).Show();
                 }
-                UpdateHands(); 
+                UpdateHands();
+                UpdateNameLabels();
                 betButton.gameObject.SetActive(true);
                 foldButton.gameObject.SetActive(true); 
                 return; 
@@ -245,7 +258,8 @@ public class Table : MonoBehaviour
                     theDealer.GetHand().Get(theDealer.GetHandSize() - 1).Hide();
                 }
                 UpdateHands();
-                if(playingBlackJack)
+                UpdateNameLabels();
+                if (playingBlackJack)
                 {
                     Player player = DeclareWinner();
                     if(player != null)
@@ -283,6 +297,7 @@ public class Table : MonoBehaviour
             theDealer.GetHand().Get(i).Show();
         }
         UpdateHands();
+
     }
 
     public void Quit()
@@ -375,8 +390,8 @@ public class Table : MonoBehaviour
 
     private void UpdateHands()
     {
-        List<CardProperties> playerHand = thePlayer.GetHand();
-        List<CardProperties> dealerHand = theDealer.GetHand();
+        List<SolitaireCardProperties> playerHand = thePlayer.GetHand();
+        List<SolitaireCardProperties> dealerHand = theDealer.GetHand();
         for (int i = 0; i < thePlayer.GetHandSize() && i < playerHandObj.Length; i++)
         {
             playerHandObj[i].SetCardProperties(playerHand.Get(i));

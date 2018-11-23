@@ -12,7 +12,7 @@ using UnityEngine;
 public class Deck 
 {
     [SerializeField]
-    private List<CardProperties> deck = new List<CardProperties>();
+    private List<SolitaireCardProperties> deck = new List<SolitaireCardProperties>();
 
     [SerializeField]
     private int top = 52;
@@ -47,27 +47,27 @@ public class Deck
             {
                 if (value <= 10 && value != 1)
                 {
-                    deck.Add(new CardProperties(value, suit, value.ToString()));
+                    deck.Add(new SolitaireCardProperties(value, suit, value.ToString()));
                 }
 
                 else if (value == 1)
                 {
-                    deck.Add(new CardProperties(value, suit, "Ace"));
+                    deck.Add(new SolitaireCardProperties(value, suit, "Ace"));
                 }
 
                 else if (value == 11)
                 {
-                    deck.Add(new CardProperties(10, suit, "Jack"));
+                    deck.Add(new SolitaireCardProperties(10, suit, "Jack"));
                 }
 
                 else if (value == 12)
                 {
-                    deck.Add(new CardProperties(10, suit, "Queen"));
+                    deck.Add(new SolitaireCardProperties(10, suit, "Queen"));
                 }
 
                 else if (value == 13)
                 {
-                    deck.Add(new CardProperties(10, suit, "King"));
+                    deck.Add(new SolitaireCardProperties(10, suit, "King"));
                 }
             }
         }
@@ -82,27 +82,27 @@ public class Deck
             {
                 if (value <= 10 && value != 1)
                 {
-                    deck.Add(new CardProperties(value, suit, value.ToString()));
+                    deck.Add(new SolitaireCardProperties(value, suit, value.ToString()));
                 }
 
                 else if(value == 1)
                 {
-                    deck.Add(new CardProperties(value, suit, "Ace"));
+                    deck.Add(new SolitaireCardProperties(value, suit, "Ace"));
                 }
 
                 else if (value == 11)
                 {
-                    deck.Add(new CardProperties(value, suit, "Jack"));
+                    deck.Add(new SolitaireCardProperties(value, suit, "Jack"));
                 }
 
                 else if (value == 12)
                 {
-                    deck.Add(new CardProperties(value, suit, "Queen"));
+                    deck.Add(new SolitaireCardProperties(value, suit, "Queen"));
                 }
 
                 else if (value == 13)
                 {
-                    deck.Add(new CardProperties(value, suit, "King"));
+                    deck.Add(new SolitaireCardProperties(value, suit, "King"));
                 }
             }
         }
@@ -122,12 +122,21 @@ public class Deck
      *
      * @return the card
      */
-    public CardProperties Deal()
+    public SolitaireCardProperties Deal()
     {
         top--;
-        CardProperties card = deck[top];
+        SolitaireCardProperties card = deck[top];
         deck.RemoveAt(top);
         return card; 
+    }
+
+    /*
+     * Returns the current size of the deck which happens to
+     * be the index of the top of the deck. 
+     */
+    public int GetCardCount()
+    {
+        return deck.Count; 
     }
 
 

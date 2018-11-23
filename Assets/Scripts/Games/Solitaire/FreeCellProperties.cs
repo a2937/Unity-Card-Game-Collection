@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreeCellProperties : ICardStack
 {
-    private CardProperties card;
+    private SolitaireCardProperties card;
 
 
     /**
@@ -15,7 +15,7 @@ public class FreeCellProperties : ICardStack
 
     }
 
-    public bool Add(CardProperties newItem)
+    public bool Add(SolitaireCardProperties newItem)
     {
         if(card == null)
         {
@@ -40,7 +40,7 @@ public class FreeCellProperties : ICardStack
         }
     }
 
-    public IEnumerator<CardProperties> GetEnumerator()
+    public IEnumerator<SolitaireCardProperties> GetEnumerator()
     {
        yield return card; 
     }
@@ -55,14 +55,14 @@ public class FreeCellProperties : ICardStack
         return card != null;
     }
 
-    public CardProperties Peek()
+    public SolitaireCardProperties Peek()
     {
         return card;
     }
 
-    public CardProperties Remove()
+    public SolitaireCardProperties Remove()
     {
-        CardProperties temp = card;
+        SolitaireCardProperties temp = card;
         card = null;
         return temp;
     }

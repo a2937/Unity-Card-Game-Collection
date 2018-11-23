@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICardStack : IStack<CardProperties>
+public interface ICardStack : IStack<SolitaireCardProperties>
 {
 
 }

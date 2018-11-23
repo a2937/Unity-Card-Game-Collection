@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedc752e0de12894686b9d8244a791c3, type: 3}
+  m_Name: FiveCardStud
+  m_EditorClassIdentifier: 
+  Title: Five Card Stud Poker
+  Rules: All players place an ante in the pot. Each player is dealt one card face
+    down and one face up, and there is a betting round. Each player is dealt a third
+    card face up. There is a second betting round. Each player is dealt a fourth card
+    face up. There is a third betting round. Each player is dealt a fifth and card
+    face up. There is a fourth betting round. Surviving players show their cards and
+    the best five-card hand wins the pot.

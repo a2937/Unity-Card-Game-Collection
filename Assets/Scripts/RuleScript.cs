@@ -16,6 +16,15 @@ public class RuleScript : MonoBehaviour
 
     public Text RulesText;
 
+    public void Awake()
+    {
+        if(rules.Count > 0)
+        {
+            TitleText.text = rules.Get(0).Title;
+            RulesText.text = rules.Get(0).Rules;
+        }
+    }
+
     public void GetNextRulesInList()
     {
         if(indexOfDisplayedRules == rules.Capacity - 1)
